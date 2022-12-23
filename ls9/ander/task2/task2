@@ -28,9 +28,8 @@ public void getInfo(){
     System.out.println("year of birth: " + year_bi);
     System.out.println("age: " + age);
 }
-public int happyBirthday(){
-        int n = age + 1;
-        return n;
+public void happyBirthday(){
+        this.age = age + 1;
 }
     public String getName() {
         return name;
@@ -52,6 +51,16 @@ public int happyBirthday(){
         return year_bi;
     }
 
+    public void setName(String name) {
+            this.name=name;
+        }
+
+    public void setName2(String name2) {
+            this.name2 = name2;
+    }
+    public void setName3(String name3){
+        this.name3=name3;
+    }
 }
 class Student extends Person {
     private int num_school;
@@ -106,12 +115,60 @@ class Employee extends Person {
     public class Main {
         public static void main(String[] args) {
             Scanner in = new Scanner(System.in);
-            Student s = new Student("Rodion","Raskolnikov", "Romanovich", "man", 1994, 4, "Lomonosov's name", 8, "literature");
+            Student s = new Student("Rodion", "Raskolnikov", "Romanovich", "man", 1998, 4, "Lomonosov's name", 8, "literature");
             Employee e = new Employee("Dmitry", "Razumikhin", "Prokofievich", "man", 1996, "eksmo", "translatore", 56000, "Sunday");
-       s.getInfoStudent();
-       s.getInfo();
-       e.getInfoEmployee();
-        e.getInfo();
+            s.getInfoStudent();
+            s.getInfo();
+            e.getInfoEmployee();
+            e.getInfo();
+            System.out.println("Enter 1 if you want change student name, surname and middle name or 0 if you want change employee name, surname and middle name");
+            int a = in.nextInt();
+            if (a == 1) {
+                System.out.println("Enter your new name: ");
+                String nname = in.nextLine();
+                nname = in.nextLine();
+                System.out.println("Enter your new surname: ");
+                String nname2 = in.nextLine();
+                System.out.println("Enter your new middle name: ");
+                String nname3 = in.nextLine();
+                System.out.println("Okey! That's your new initials : ");
+                System.out.println("-----------------------------");
+                s.setName(nname);
+                s.setName2(nname2);
+                s.setName3(nname3);
+                s.getInfo();
+            }
+        if(a==0) {
+            System.out.println("Enter your new name: ");
+            String nname = in.nextLine();
+            nname = in.nextLine();
+            System.out.println("Enter your new surname: ");
+            String nname2 = in.nextLine();
+            System.out.println("Enter your new middle name: ");
+            String nname3 = in.nextLine();
+            System.out.println("Okey! That's your new initials: ");
+            System.out.println("-----------------------------");
+            e.setName(nname);
+            e.setName2(nname2);
+            e.setName3(nname3);
+
+                e.getInfo();
+            }
+        if (!(a==1||a==0)){
+            System.out.println("Hehehe.... NO!!!! Enter another initials; ");
+        }
+            System.out.println("-----------------------------");
+        System.out.println("It's time to get old >;)");
+            System.out.println("-------------------------");
+        s.happyBirthday();
+            s.happyBirthday();
+            s.happyBirthday();
+            s.getInfo();
+            e.happyBirthday();
+            e.happyBirthday();
+            e.happyBirthday();
+            e.happyBirthday();
+            e.happyBirthday();
+            e.getInfo();
         }
     }
-
